@@ -55,7 +55,6 @@ def listen_to_UI_interaction(self, init_keystone):
     if self.selected_corner != None and chr(KEY_STROKE & 255) in move_keys:
         self.corner_direction = chr(KEY_STROKE & 255)
 
-        # 左上の角を選択した場合
         if self.selected_corner == '1':
             if self.corner_direction == 'd':
                 init_keystone[0] = init_keystone[0] - self.distance_value 
@@ -66,7 +65,6 @@ def listen_to_UI_interaction(self, init_keystone):
             elif self.corner_direction == 's':
                 init_keystone[1] = init_keystone[1] - self.distance_value 
 
-        # 右上の角を選択した場合
         elif self.selected_corner == '2':
             if self.corner_direction == 'd':
                 init_keystone[2] = init_keystone[2] - self.distance_value 
@@ -77,7 +75,6 @@ def listen_to_UI_interaction(self, init_keystone):
             elif self.corner_direction == 's':
                 init_keystone[3] = init_keystone[3] - self.distance_value 
 
-        # 左下の角を選択した場合
         elif self.selected_corner == '3':
             if self.corner_direction == 'd':
                 init_keystone[4] = init_keystone[4] - self.distance_value 
@@ -87,8 +84,7 @@ def listen_to_UI_interaction(self, init_keystone):
                 init_keystone[5] = init_keystone[5] + self.distance_value 
             elif self.corner_direction == 's':
                 init_keystone[5] = init_keystone[5] - self.distance_value 
-        
-        # 右下の角を選択した場合
+
         elif self.selected_corner == '4':
             if self.corner_direction == 'd':
                 init_keystone[6] = init_keystone[6] - self.distance_value 
@@ -98,23 +94,8 @@ def listen_to_UI_interaction(self, init_keystone):
                 init_keystone[7] = init_keystone[7] + self.distance_value 
             elif self.corner_direction == 's':
                 init_keystone[7] = init_keystone[7] - self.distance_value 
-        
-        # 左上の角と右上の角を選択した場合
-        # elif self.selected_corner == '5':
-        #     if self.corner_direction == 'd':
-        #         init_keystone[0] = init_keystone[0] - self.distance_value 
-        #         init_keystone[2] = init_keystone[2] - self.distance_value 
-        #     elif self.corner_direction == 'a':
-        #         init_keystone[0] = init_keystone[0] + self.distance_value 
-        #         init_keystone[2] = init_keystone[2] + self.distance_value 
-        #     elif self.corner_direction == 'w':
-        #         init_keystone[1] = init_keystone[1] + self.distance_value 
-        #         init_keystone[3] = init_keystone[3] + self.distance_value 
-        #     elif self.corner_direction == 's':
-        #         init_keystone[1] = init_keystone[1] - self.distance_value 
-        #         init_keystone[3] = init_keystone[3] - self.distance_value
 
-    ulx = init_keystone[0] #upperleft x
+    ulx = init_keystone[0]
     uly = init_keystone[1]
     urx = init_keystone[2]
     ury = init_keystone[3]
@@ -122,6 +103,18 @@ def listen_to_UI_interaction(self, init_keystone):
     bly = init_keystone[5]
     brx = init_keystone[6]
     bry = init_keystone[7]
+
+
+    # if 'q' key is pressed, then set self.selected_corner to None 
+    if chr(KEY_STROKE & 255) == 'q':
+        # reset selected corner
+        self.selected_corner = None
+        # save keystone to file
+        # save_keystone_to_file(self, [ulx, uly, urx, ury, blx, bly, brx, bry])
+        save_keystone_to_file(self, init_keystone)
+       
+    new_keystone = np.asarray([(ulx, uly), (urx, ury), (blx, bly), (brx, bry)], dtype=np.float32)
+    return new_keystone
 
 ##################################################
 
