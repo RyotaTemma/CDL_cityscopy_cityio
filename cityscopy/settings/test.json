@@ -1,0 +1,3 @@
+{"CITYIO_API_URL": "http://127.0.0.1:8888", "CITYSCOPE_PRJ_NAME": "", "TOGGLE_SEND_TO_CITYIO": true, "nrows": 4, "ncols": 2, "cell_gap": 10, "camId": 1, "interval": 2000, "gui": true, "mirror_cam": false, "keystone_points_list": "2400.0  0.0  0.0  0.0  2400.0  2400.0  0.0  2400.0", 
+"types": {"notpopularshop": {"name": "notpopularshop", "color": [171, 143, 57], "height": [0, 15, 30], "cityscopy_id": 0, "cityscopy_pattern": "0000000000000000"}, 
+"mostpopularshop": {"name": "mostpopularshop", "color": [36, 130, 198], "height": [0, 50, 100], "cityscopy_id": 1, "cityscopy_pattern": "1111111111111111"}}}
