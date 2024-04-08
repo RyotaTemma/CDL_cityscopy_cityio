@@ -72,6 +72,7 @@ class Scanner:
 
         # get init keystones
         self.init_keystone = get_init_keystone(self)
+        print('init keystone:', self.init_keystone)
         # define the table params
         grid_dimensions_x = self.table_settings['ncols']
         grid_dimensions_y = self.table_settings['nrows']
@@ -241,6 +242,7 @@ class Scanner:
                 # draw arrow to interaction area
                 ui_selected_corner(self,
                                    video_resolution_x, video_resolution_y, keystoned_video)
+                # print(video_resolution_x, video_resolution_y)
                 # draw the video to screen
                 cv2.imshow("scanner_gui_window", keystoned_video)
 
@@ -302,6 +304,8 @@ class Scanner:
         # inverted screen ratio for np source array
         video_aspect_ratio = (video_resolution_y, video_resolution_x)
         # np source points array
+        # 透視変換をするための4点を設定
+        # 今回はビデオ画面全体
         keystone_origin_points_array = np.float32(
             [
                 [0, 0],
