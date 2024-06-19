@@ -7,6 +7,7 @@ import os
 
 
 ##################################################
+# Qボタンを押したときの処理
 def save_settings_to_file(CITYSCOPE_PRJ_NAME, table_settings):
     # write the settings file to the json file
     SETTINGS_PATH = "./settings/" + CITYSCOPE_PRJ_NAME + ".json"

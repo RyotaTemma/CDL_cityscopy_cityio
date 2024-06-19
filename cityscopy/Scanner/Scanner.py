@@ -125,6 +125,7 @@ class Scanner:
         cv2.moveWindow('scanner_gui_window', 10, 100)
 
         # call colors dictionary
+        # 白黒の判別をするための色の辞書
         DICTIONARY_COLORS = {
             # black
             0: (0, 0, 0),

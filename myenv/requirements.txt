@@ -1,0 +1,7 @@
+opencv-python
+pyzbar
+qrcode
+pillow
+flask
+gunicorn
+qrcode
